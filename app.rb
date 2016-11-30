@@ -33,6 +33,7 @@ if content.length <=0
 	@error= 'Type post text'
 	return erb :new
 	end
-
+#добавление данных в базу данных
+@db.execute 'insert into Posts(content,created_date) values(? ,datetime())',[content]
 erb"You typed #{content}"
 end
