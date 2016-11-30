@@ -21,6 +21,8 @@ content TEXT
 )'
 end
 get '/' do
+	#выбираем список постов из БД
+	@results = @db.execute 'SELECT * FROM Posts order by id desc'
 	erb :index
 end
 get '/new' do
