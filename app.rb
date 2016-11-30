@@ -11,6 +11,15 @@ before do
 	init_db
 end
 
+configure do
+	init_db
+@db.execute 'CREATE TABLE IF NOT EXISTS Posts
+(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+created_date DATE,
+content TEXT
+)'
+end
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra\">Original</a> pattern has been modifiled for Rubi School"	
 end
